@@ -3,6 +3,7 @@
 const express = require('express');
 const productsController = require('./controllers/productsController');
 const salesController = require('./controllers/salesController');
+const { authProductName } = require('./middlewares/validateInsertProduct');
 
 const app = express();
 app.use(express.json());
@@ -16,7 +17,7 @@ app.get('/products', productsController.getAllProductsController);
 
 app.get('/products/:id', productsController.getProductByIdController);
 
-app.post('/products', productsController.postProductController);
+app.post('/products', authProductName, productsController.postProductController);
 
 app.post('sales', salesController.postSale);
 

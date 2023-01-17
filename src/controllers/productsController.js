@@ -18,6 +18,7 @@ const getProductByIdController = async (req, res) => {
 
 const postProductController = async (req, res) => {
   const { name } = req.body;
+
   const { type, data } = await productsService.postProductService(name);
   res.status(type).json(data);
 };
