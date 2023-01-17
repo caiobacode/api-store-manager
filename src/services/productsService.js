@@ -16,8 +16,8 @@ const getProductByIdService = async (id) => {
   return { type: 200, data: product };
 };
 
-const postProductService = async (name) => {
-  const productId = await productsModel.postProduct({ name });
+const insertProductService = async (name) => {
+  const productId = await productsModel.insertProduct({ name });
   const newProduct = {
     id: productId,
     name,
@@ -28,5 +28,5 @@ const postProductService = async (name) => {
 module.exports = {
   getAllProductsService,
   getProductByIdService,
-  postProductService,
+  insertProductService,
 };
