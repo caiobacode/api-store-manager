@@ -16,7 +16,17 @@ const getProductByIdService = async (id) => {
   return { type: 200, data: product };
 };
 
+const postProductService = async (name) => {
+  const productId = await productsModel.postProduct({ name });
+  const newProduct = {
+    id: productId,
+    name,
+  };
+  return { type: 201, data: newProduct };
+};
+
 module.exports = {
   getAllProductsService,
   getProductByIdService,
+  postProductService,
 };
