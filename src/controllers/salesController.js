@@ -1,8 +1,9 @@
 const salesService = require('../services/salesService');
 
 const insertSale = async (req, res) => {
-  const sale = await salesService.insertSale({ name: 'sale' });
-  res.status(201).json(sale);
+  const { type, data } = await salesService.insertSale(req.body);
+
+  res.status(type).json(data);
 };
 
 module.exports = {

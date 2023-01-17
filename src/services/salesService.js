@@ -1,8 +1,17 @@
 const salesModels = require('../models/salesModels,');
 
 const insertSale = async (sale) => {
-  const newSale = await salesModels.insertSale(sale);
-  return newSale;
+  const newSaleId = await salesModels.insertSale(sale);
+  sale.map(async (s) => {
+    await salesModels.insertSaleProducts(newSaleId, s.productId, s.quantity);
+  });
+
+  const newData = {
+    id: newSaleId,
+    itemsSold: sale,
+  };
+
+  return { type: 201, data: newData };
 };
 
 module.exports = {
