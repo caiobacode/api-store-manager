@@ -25,8 +25,20 @@ const insertProductService = async (name) => {
   return { type: 201, data: newProduct };
 };
 
+const changeProduct = async (id, name) => {
+  const product = await productsModel.changeProduct(id, name);
+  if (product === 0) return { type: 404, data: { message: 'Product not found' } };
+  const newData = {
+    id,
+    name,
+  };
+
+  return { type: 200, data: newData };
+};
+
 module.exports = {
   getAllProductsService,
   getProductByIdService,
   insertProductService,
+  changeProduct,
 };

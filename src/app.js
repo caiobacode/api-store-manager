@@ -15,15 +15,17 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
-app.get('/products', productsController.getAllProductsController);
+app.get('/products', productsController.getAllProducts);
 
-app.get('/products/:id', authId, productsController.getProductByIdController);
+app.get('/products/:id', authId, productsController.getProductById);
 
-app.post('/products', authProductName, productsController.insertProductController);
+app.put('/products/:id', authId, authProductName, productsController.changeProduct);
+
+app.post('/products', authProductName, productsController.insertProduct);
 
 app.get('/sales', salesController.getSales);
 
-app.get('/sales/:id', salesController.getSaleById);
+app.get('/sales/:id', authId, salesController.getSaleById);
 
 app.post('/sales', authSale, salesController.insertSale);
 
