@@ -19,9 +19,11 @@ app.get('/products', productsController.getAllProducts);
 
 app.get('/products/:id', authId, productsController.getProductById);
 
+app.post('/products', authProductName, productsController.insertProduct);
+
 app.put('/products/:id', authId, authProductName, productsController.changeProduct);
 
-app.post('/products', authProductName, productsController.insertProduct);
+app.delete('/products/:id', productsController.deleteProduct);
 
 app.get('/sales', salesController.getSales);
 
