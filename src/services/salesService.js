@@ -14,7 +14,9 @@ const insertSale = async (sale) => {
 
   const newData = {
     id: newSaleId,
-    itemsSold: sale,
+    itemsSold: [
+      ...sale,
+    ],
   };
 
   return { type: 201, data: newData };
@@ -44,11 +46,11 @@ const getSaleById = async (id) => {
 
   const newProducts = salesProducts.filter((sale) => sale.sale_id === Number(id));
   if (newProducts.length === 0) return { type: 404, data: { message: 'Sale not found' } };
-
+  
   const newData = newProducts.map((p) => {
-    const findData = sales.find((s) => s.id === Number(id)).date;
+    const findData = sales.find((s) => s.id === Number(id));
     const np = {
-      date: findData,
+      date: findData.date,
       productId: p.product_id,
       quantity: p.quantity,
     };

@@ -23,6 +23,7 @@ const insertSaleProducts = async (saleId, productId, quantity) => {
   const query2 = '(sale_id, product_id, quantity) VALUES (?, ?, ?);';
   const actualQuery = `${query1} ${query2}`;
   const [result] = await connection.execute(actualQuery, [saleId, productId, quantity]);
+  console.log('vim aqui');
   return result;
 };
 
