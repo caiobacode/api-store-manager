@@ -69,11 +69,8 @@ const changeSale = async (id, newSale) => {
   
   if (data.message) return { type: 404, data: { ...data } };
 
-  const promises = data.map(async (s, index) => {
-    const { productId } = newSale[index];
-    const { quantity } = newSale[index];
-    const oldParams = { productId: s.productId, quantity: s.quantity };
-    await salesModel.changeSale(productId, quantity, id, oldParams);
+  const promises = newSale.map(async (s, index) => {
+    await salesModel.changeSale(s.productId, s.quantity, id, data[index].productId);
   });
 
   const newData = { saleId: id, itemsUpdated: [...newSale] };

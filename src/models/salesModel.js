@@ -26,12 +26,12 @@ const insertSaleProducts = async (saleId, productId, quantity) => {
   return result;
 };
 
-const changeSale = async (newProductId, newQuantity, saleId, oldParams) => {
+const changeSale = async (newProductId, newQuantity, saleId, oldProductId) => {
   const query1 = 'UPDATE StoreManager.sales_products SET product_id = ?,';
-  const query2 = 'quantity = ? WHERE sale_id = ? AND product_id = ? AND quantity = ?';
+  const query2 = 'quantity = ? WHERE sale_id = ? AND product_id = ?';
   const actualQuery = `${query1} ${query2}`;
   const [result] = await connection.execute(
-    actualQuery, [newProductId, newQuantity, saleId, oldParams.productId, oldParams.quantity],
+    actualQuery, [newProductId, newQuantity, saleId, oldProductId],
   );
   return result;
 };
