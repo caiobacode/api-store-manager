@@ -3,7 +3,7 @@ const productsModel = require('../models/productsModel');
 const getAllProductsService = async () => {
   const allProducts = await productsModel.getAllProducts();
 
-  if (!allProducts) return { type: 404, data: { message: 'Products Not Found' } };
+  if (allProducts.length === 0) return { type: 404, data: { message: 'Products Not Found' } };
 
   return { type: 200, data: allProducts };
 };

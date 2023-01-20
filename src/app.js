@@ -21,6 +21,10 @@ app.get('/products/:id', authId, productsController.getProductByIdController);
 
 app.post('/products', authProductName, productsController.insertProductController);
 
+app.get('/sales', salesController.getSales);
+
+app.get('/sales/:id', salesController.getSaleById);
+
 app.post('/sales', authSale, salesController.insertSale);
 
 // não remova essa exportação, é para o avaliador funcionar
