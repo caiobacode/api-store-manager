@@ -43,7 +43,7 @@ const deleteProduct = async (id) => {
 
   if (returnModel.affectedRows === 0) return { type: 404, data: { message: 'Product not found' } };
 
-  return { type: 204, data: returnModel };
+  return { type: 204, data: '' };
 };
 
 module.exports = {

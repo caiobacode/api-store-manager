@@ -26,9 +26,27 @@ const insertSaleProducts = async (saleId, productId, quantity) => {
   return result;
 };
 
+const changeSale = async (newProductId, newQuantity, saleId, oldParams) => {
+  const query1 = 'UPDATE StoreManager.sales_products SET product_id = ?,';
+  const query2 = 'quantity = ? WHERE sale_id = ? AND product_id = ? AND quantity = ?';
+  const actualQuery = `${query1} ${query2}`;
+  const [result] = await connection.execute(
+    actualQuery, [newProductId, newQuantity, saleId, oldParams.productId, oldParams.quantity],
+  );
+  return result;
+};
+
+const deleteSale = async (id) => {
+  const query = 'DELETE from StoreManager.sales WHERE id = ?';
+  const [response] = await connection.execute(query, [id]);
+  return response;
+};
+
 module.exports = {
   getSalesProducts,
   getAllSales,
   insertSale,
   insertSaleProducts,
+  changeSale,
+  deleteSale,
 };
