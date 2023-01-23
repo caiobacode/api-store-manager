@@ -1,6 +1,6 @@
 const productsModel = require('../models/productsModel');
 
-const getAllProductsService = async () => {
+const getAllProducts = async () => {
   const allProducts = await productsModel.getAllProducts();
 
   if (allProducts.length === 0) return { type: 404, data: { message: 'Products Not Found' } };
@@ -8,7 +8,7 @@ const getAllProductsService = async () => {
   return { type: 200, data: allProducts };
 };
 
-const getProductByIdService = async (id) => {
+const getProductById = async (id) => {
   const product = await productsModel.getProductById(id);
 
   if (!product) return { type: 404, data: { message: 'Product not found' } };
@@ -47,8 +47,8 @@ const deleteProduct = async (id) => {
 };
 
 module.exports = {
-  getAllProductsService,
-  getProductByIdService,
+  getAllProducts,
+  getProductById,
   insertProductService,
   changeProduct,
   deleteProduct,
