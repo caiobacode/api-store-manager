@@ -4,9 +4,14 @@ const allProductsResponse = [
   {id:3,name:'Escudo do Capitão América'},
 ];
 
-const newProduct = { id: 1, name: "Martelo de Thor" };
+const thorProduct = { id: 1, name: "Martelo de Thor" };
+
+const newProduct = { name: 'Bolsa da vo' }
+const createdProductResponse = { id: 4, name: 'Bolsa da vo'}
 
 module.exports = {
   allProductsResponse,
+  thorProduct,
   newProduct,
+  createdProductResponse
 };

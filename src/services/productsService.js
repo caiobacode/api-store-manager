@@ -16,7 +16,7 @@ const getProductById = async (id) => {
   return { type: 200, data: product };
 };
 
-const insertProductService = async (name) => {
+const insertProduct = async (name) => {
   const productId = await productsModel.insertProduct({ name });
   const newProduct = {
     id: productId,
@@ -49,7 +49,7 @@ const deleteProduct = async (id) => {
 module.exports = {
   getAllProducts,
   getProductById,
-  insertProductService,
+  insertProduct,
   changeProduct,
   deleteProduct,
 };

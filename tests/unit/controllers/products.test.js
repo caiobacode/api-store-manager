@@ -5,13 +5,13 @@ const sinonChai = require('sinon-chai');
 const { expect } = chai;
 chai.use(sinonChai);
 
-const { allProductsResponse, newProduct } = require('../../mocks/productsMock')
+const { allProductsResponse, thorProduct, createdProductResponse, newProduct } = require('../../mocks/productsMock')
 const productsService = require('../../../src/services/productsService');
 const productsController = require('../../../src/controllers/productsController')
 
 describe('Products controller test', () => {
   describe('Get products test', () => {
-    it('Get all products test', async () => {
+    it('Get all products', async () => {
       const res = {};
       const req = {};
 
@@ -29,13 +29,13 @@ describe('Products controller test', () => {
       
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns();
-      sinon.stub(productsService, 'getProductById').resolves({ type: 200, data: newProduct });
+      sinon.stub(productsService, 'getProductById').resolves({ type: 200, data: thorProduct });
 
       await productsController.getProductById(req, res);
       expect(res.status).to.have.been.calledWith(200);
-      expect(res.json).to.have.been.calledWith(newProduct)
+      expect(res.json).to.have.been.calledWith(thorProduct)
     })
-    it('Invalid id test', async () => {
+    it('Invalid ID test', async () => {
       const res = {};
       const req = { params: { id: 100}};
       
@@ -54,4 +54,23 @@ describe('Products controller test', () => {
     });
   })
 
+  describe('Insert products test', () => {
+    it('Insert product test', async () => {
+      const res = {};
+      const req = { body: newProduct };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'insertProduct').resolves({ type: 201, data: createdProductResponse });
+
+      await productsController.insertProduct(req, res);
+      expect(res.status).to.have.been.calledWith(201);
+      expect(res.json).to.have.been.calledWith(createdProductResponse)
+    })
+    
+  })
+  afterEach(function () {
+    sinon.restore();
+  });
+  
 });

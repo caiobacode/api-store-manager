@@ -19,15 +19,15 @@
     "containerId": "",
     "name": "http://localhost:3000/products",
     "url": "http://localhost:3000/products",
-    "method": "GET",
+    "method": "POST",
     "sortNum": 0,
     "created": "2023-01-17T20:40:33.174Z",
-    "modified": "2023-01-23T02:55:33.476Z",
+    "modified": "2023-01-23T03:13:41.755Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 5\n  }\n]",
+      "raw": "{\n  \"name\": \"ovoss\"\n}",
       "form": []
     },
     "tests": []
