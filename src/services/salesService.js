@@ -8,16 +8,16 @@ const insertSale = async (sale) => {
   if (productExists.some((p) => !p)) return { type: 404, data: { message: 'Product not found' } };
 
   const newSaleId = await salesModel.insertSale(sale);
-  sale.map(async (s) => {
+  const promises = sale.map(async (s) => {
     await salesModel.insertSaleProducts(newSaleId, s.productId, s.quantity);
   });
 
   const newData = {
     id: newSaleId,
-    itemsSold: [
-      ...sale,
-    ],
+    itemsSold: sale,
   };
+
+  await Promise.all(promises);
 
   return { type: 201, data: newData };
 };
@@ -62,20 +62,21 @@ const getSaleById = async (id) => {
 
 const changeSale = async (id, newSale) => {
   const { data } = await getSaleById(id);
+
+  if (data.message) return { type: 404, data: { ...data } };
+
   const allProducts = await productsModel.getAllProducts();
 
   const productExists = newSale.map((s) => allProducts.some((p) => p.id === s.productId));
   if (productExists.some((p) => !p)) return { type: 404, data: { message: 'Product not found' } };
-  
-  if (data.message) return { type: 404, data: { ...data } };
 
   const promises = newSale.map(async (s, index) => {
     await salesModel.changeSale(s.productId, s.quantity, id, data[index].productId);
   });
 
-  const newData = { saleId: id, itemsUpdated: [...newSale] };
-
   await Promise.all(promises);
+  
+  const newData = { saleId: id, itemsUpdated: [...newSale] };
 
   return { type: 200, data: newData };
 };
