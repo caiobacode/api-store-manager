@@ -10,9 +10,7 @@ describe('Products Service test', () => {
       sinon.stub(salesModel, 'getAllSales').resolves(allSalesResponse)
       sinon.stub(salesModel, 'getSalesProducts').resolves(allSalesProductsResponse)
       const serviceReturn = await salesService.getSales();
-      console.log(serviceReturn);
-      console.log(salesServiceResponse);
-      expect(serviceReturn).to.be.equal({ type: 200, data: [ ...salesServiceResponse ]})
+      expect(serviceReturn).to.be.deep.equal({ type: 200, data: [ ...salesServiceResponse ]})
     })
   })
   afterEach(function () {
