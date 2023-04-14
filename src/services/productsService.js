@@ -16,6 +16,13 @@ const getProductById = async (id) => {
   return { type: 200, data: product };
 };
 
+const getProductByTerm = async (term) => {
+  const allProducts = await productsModel.getAllProducts();
+  const productsFilter = allProducts.filter((p) => p.name.includes(term));
+
+  return { type: 200, data: productsFilter };
+};
+
 const insertProduct = async (name) => {
   const productId = await productsModel.insertProduct({ name });
   const newProduct = {
@@ -49,6 +56,7 @@ const deleteProduct = async (id) => {
 module.exports = {
   getAllProducts,
   getProductById,
+  getProductByTerm,
   insertProduct,
   changeProduct,
   deleteProduct,

@@ -19,6 +19,8 @@ app.get('/products', productsController.getAllProducts);
 
 app.get('/products/:id', authId, productsController.getProductById);
 
+app.get('/products/search', productsController.getProductByTerm);
+
 app.post('/products', authProductName, productsController.insertProduct);
 
 app.put('/products/:id', authId, authProductName, productsController.changeProduct);
