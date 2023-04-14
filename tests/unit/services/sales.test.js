@@ -42,6 +42,8 @@ describe('Sales Service test', () => {
   describe('Change sales test', () => {
     it('Change sales test', async () => {
       sinon.stub(productsModel, 'getAllProducts').resolves(allProductsResponse)
+      sinon.stub(salesModel, 'getAllSales').resolves(allSalesResponse)
+      sinon.stub(salesModel, 'getSalesProducts').resolves(allSalesProductsResponse)
       sinon.stub(salesModel, 'changeSale').resolves(insertSaleProductsResponse);
       const serviceReturn = await salesService.changeSale(1, newSaleReq);
       expect(serviceReturn.data).to.be.deep.equal(changeSaleRes)
