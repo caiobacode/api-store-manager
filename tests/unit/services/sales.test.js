@@ -1,6 +1,10 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const { allSalesResponse, allSalesProductsResponse, salesServiceResponse, oneSaleResponse } = require('../../mocks/productsMock')
+const { allSalesResponse,
+  allSalesProductsResponse,
+  salesServiceResponse,
+  oneSaleResponse,
+} = require('../../mocks/productsMock')
 const salesModel = require('../../../src/models/salesModel')
 const salesService = require('../../../src/services/salesService')
 
