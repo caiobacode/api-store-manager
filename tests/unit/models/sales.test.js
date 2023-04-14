@@ -30,6 +30,13 @@ describe('Sales model test', () => {
       expect(modelReturn).to.be.equal(insertSaleProductsResponse);
     });
   });
+  describe('Delete sales test', () => {
+    it('Delete sale', async () => {
+      sinon.stub(connection, 'execute').resolves([insertSaleProductsResponse]);
+      const modelReturn = await salesModel.deleteSale(1);
+      expect(modelReturn).to.be.equal(insertSaleProductsResponse);
+    });
+  });
 
   afterEach(function () {
     sinon.restore();

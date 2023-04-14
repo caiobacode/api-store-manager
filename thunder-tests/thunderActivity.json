@@ -22,7 +22,7 @@
     "method": "PUT",
     "sortNum": 0,
     "created": "2023-01-17T20:40:33.174Z",
-    "modified": "2023-04-14T15:18:01.203Z",
+    "modified": "2023-04-14T16:14:21.708Z",
     "headers": [],
     "params": [],
     "body": {
@@ -38,10 +38,10 @@
     "containerId": "",
     "name": "http://localhost:3000/sales",
     "url": "http://localhost:3000/sales",
-    "method": "GET",
+    "method": "POST",
     "sortNum": 0,
     "created": "2023-01-17T20:41:43.599Z",
-    "modified": "2023-01-25T17:23:36.203Z",
+    "modified": "2023-04-14T15:45:24.759Z",
     "headers": [],
     "params": [],
     "body": {

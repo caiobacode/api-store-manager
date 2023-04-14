@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 const connection = require('../../../src/models/connection');
-const { allProductsResponse, thorProduct, newProduct } = require('../../mocks/productsMock')
+const { allProductsResponse, thorProduct, newProduct, insertSaleProductsResponse } = require('../../mocks/productsMock')
 const  productsModel  = require('../../../src/models/productsModel')
 
 describe('Products model test', () => {
@@ -29,6 +29,13 @@ describe('Products model test', () => {
       const { name } = newProduct;
       const modelReturn = await productsModel.insertProduct({ name });
       expect(modelReturn).to.be.equal(4);
+    })
+  });
+  describe('Delete products test', () => {
+    it('Delete product test', async () => {
+      sinon.stub(connection, 'execute').resolves([insertSaleProductsResponse]);
+      const modelReturn = await productsModel.deleteProduct(1);
+      expect(modelReturn).to.be.equal(insertSaleProductsResponse);
     })
   });
 

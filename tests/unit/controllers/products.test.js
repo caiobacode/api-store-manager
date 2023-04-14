@@ -69,6 +69,25 @@ describe('Products controller test', () => {
     })
     
   })
+
+  describe('Delete products test', () => {
+    it('Delete product test', async () => {
+      const res = {};
+      const req = { params: { id: 1}};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'deleteProduct').resolves({ type: 204, data: '' });
+
+      await productsController.deleteProduct(req, res);
+      expect(res.status).to.have.been.calledWith(204);
+      expect(res.json).to.have.been.calledWith('')
+    })
+    afterEach(function () {
+    sinon.restore();
+  });
+  })
+
   afterEach(function () {
     sinon.restore();
   });

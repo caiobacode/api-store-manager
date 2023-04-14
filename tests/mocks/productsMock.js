@@ -82,6 +82,31 @@ const oneSaleResponse = [
   },
 ]
 
+const newSaleReq = [
+  {
+    productId: 1,
+    quantity: 1
+  },
+  {
+    productId: 2,
+    quantity: 5
+  }
+]
+
+const changeSaleRes = {
+  saleId: 1,
+  itemsUpdated: [
+    {
+      productId: 1,
+      quantity: 1
+    },
+    {
+      productId: 2,
+      quantity: 5
+    }
+  ]
+}
+
 module.exports = {
   allProductsResponse,
   thorProduct,
@@ -93,4 +118,6 @@ module.exports = {
   oneSaleResponse,
   insertSaleProductsResponse,
   salesServiceResponse,
+  newSaleReq,
+  changeSaleRes,
 };
