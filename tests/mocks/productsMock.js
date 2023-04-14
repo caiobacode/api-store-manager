@@ -7,6 +7,7 @@ const allProductsResponse = [
 const thorProduct = { id: 1, name: "Martelo de Thor" };
 
 const newProduct = { name: 'Bolsa da vo' }
+
 const createdProductResponse = { id: 4, name: 'Bolsa da vo' }
 
 const allSalesResponse= [
@@ -68,6 +69,19 @@ const salesServiceResponse = [
   },
 ]
 
+const oneSaleResponse = [
+  {
+    date: '2023-01-23T03:02:43.000Z',
+    productId: 1,
+    quantity: 5
+  },
+  {
+    date: '2023-01-23T03:02:43.000Z',
+    productId: 2,
+    quantity: 10
+  },
+]
+
 module.exports = {
   allProductsResponse,
   thorProduct,
@@ -76,6 +90,7 @@ module.exports = {
   saleCreateResponse,
   allSalesProductsResponse,
   allSalesResponse,
+  oneSaleResponse,
   insertSaleProductsResponse,
   salesServiceResponse,
 };
