@@ -18,19 +18,13 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products/search?q=",
+    "url": "http://localhost:3000/products/1",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-17T20:40:33.174Z",
-    "modified": "2023-04-14T14:12:41.310Z",
+    "modified": "2023-04-14T15:00:01.478Z",
     "headers": [],
-    "params": [
-      {
-        "name": "q",
-        "value": "",
-        "isPath": false
-      }
-    ],
+    "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"ovoss\"\n}",
