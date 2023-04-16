@@ -12,7 +12,7 @@
 [![MYSQL][MYSQL]][MYSQL-url]
 [![Node.js][Node.js]][Node.js-url]
 [![EXPRESS][EXPRESS]][EXPRESS-url]
-[![DOCKER][DOCKER]][DOCKER-url]<br/>
+[![DOCKER][DOCKER]][DOCKER-url]
 [![Mocha][Mocha]][Mocha-url]
 [![Chai][Chai]][Chai-url]
 
