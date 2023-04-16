@@ -69,7 +69,7 @@ npm run restore
 npm start
 ```
 
-</details><br/>
+</details>
 
 ### <strong>🧪 Test the application</strong>
 
