@@ -50,10 +50,10 @@ docker-compose up -d
 
 ```bash
 # Clone the repo
-git clone https://github.com/caiobacode/api-talker-manager.git
+git clone https://github.com/caiobacode/api-store-manager.git
 
 # Enter in repo
-cd api-talker-manager
+cd api-store-manager
 
 # Install dependencies
 npm install
